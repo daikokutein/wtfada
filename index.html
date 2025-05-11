@@ -18,6 +18,88 @@
 </script>
  
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <style>
+        .credits-btn {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            width: 24px;
+            height: 24px;
+            background-color: #333;
+            color: #aaa;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-family: 'Ubuntu Mono', monospace;
+            font-size: 14px;
+            font-style: italic;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.65;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .credits-btn:hover {
+            opacity: 1;
+            background-color: #444;
+            color: #ccc;
+            box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+        }
+        .credits-popup {
+            display: none;
+            position: fixed;
+            bottom: 45px;
+            right: 15px;
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            border-left: 4px solid #444;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            z-index: 1000;
+            font-family: 'Ubuntu Mono', monospace;
+            max-width: 250px;
+        }
+        .credits-popup p {
+            color: #aaa;
+            font-size: 12px;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            text-align: center;
+        }
+        .credits-popup .social-links {
+            display: flex;
+            justify-content: space-around;
+        }
+        .credits-popup .social-button {
+            padding: 5px 10px;
+            background-color: #222;
+            color: #aaa;
+            text-decoration: none;
+            border-radius: 3px;
+            font-size: 11px;
+            border: 1px solid #444;
+        }
+        .credits-popup .social-button:hover {
+            background-color: #333;
+        }
+        .credits-popup .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+            color: #777;
+            font-size: 10px;
+        }
+        .credits-popup p strong {
+            color: #bbb;
+            font-size: 14px;
+            display: block;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -33,7 +115,9 @@
             </div>
         </div>
         
-        
+        <header>
+            <h1>programs.txt - Visual Studio Code</h1>
+        </header>
         
         <main class="grid">
             <div class="card" data-program="1">
@@ -124,12 +208,7 @@
                 </div>
                 <div class="copied-message">Copied</div>
             </div>
-            <div class="card-content">
-                    <h2>MADE BY sagar</h2>
-                    <P>finding code manual  is tough and time consuming, 
-                        so i made this website  to just copy paste and start learning :)
-                          </P>
-                </div>
+          
         </main>
         
         <footer>
@@ -140,6 +219,28 @@
         </footer>
     </div>
 
+    <button class="credits-btn" onclick="toggleCredits()">i</button>
+    
+    <div id="creditsPopup" class="credits-popup">
+        <span class="close-btn" onclick="toggleCredits()">✕</span>
+        <p><strong>Developed by Sagar</strong></p>
+        <p>Finding code manually is tough and time consuming, so I made this website to just copy paste and start learning :)</p>
+        <div class="social-links">
+            <a href="https://linkedin.com/in/" target="_blank" class="social-button">LinkedIn</a>
+            <a href="https://github.com/" target="_blank" class="social-button">GitHub</a>
+        </div>
+    </div>
+
     <script src="script.js"></script>
+    <script>
+        function toggleCredits() {
+            const popup = document.getElementById('creditsPopup');
+            if (popup.style.display === 'block') {
+                popup.style.display = 'none';
+            } else {
+                popup.style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html> 
